@@ -1,0 +1,729 @@
+@import "./style.scss";
+@import "./reset.scss";
+@import "./mixin.scss";
+
+.grid {
+    position: relative;
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+// header
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    margin: 0 auto;
+    &.change {
+        transition: 0.5s;
+        background-color: $background;
+    }
+    .main-menu {
+        cursor: pointer;
+        h1 {
+            float: left;
+            margin: 25px 20px;
+            color: $color-base;
+        }
+    }
+    
+    .logo-on {
+        display: none;
+        float: left;
+        margin: 20px 0;
+        margin-left: 22%;
+        width: 15%;
+        max-width: 80px;
+        @include responsive(tablet-screens) {
+            margin-left: 32%;
+        }
+        @include responsive(pc-screens) {
+            margin-left: 42%;
+        }
+        a{
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .order {
+        float: right;
+        margin: 20px 20px;
+        button {
+            width: 93px;
+            height: 43px;
+            font-size: 1.28em;
+            color: $color-main;
+            border-radius: 30px;
+            border: 1px solid $color-base;
+            &:hover {
+                color: $color-base;
+                background-color: transparent;
+                cursor: pointer;
+            }
+
+            &.btn-change {
+                color: $color-base;
+                background-color: $color-main;
+                border: 1px solid $color-main;
+                &:hover {
+                    color: $color-main;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+    .gnb {
+        display: none;
+    }
+}
+
+
+// main
+main {
+    .header-logo {
+        .back {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100vh;
+            background: url(../images/main1.jpg);
+            background-size: cover;
+            background-position: center;
+            @include responsive(pc-screens) {
+                background: url(../images/main2.jpg);
+                background-size: cover;
+            }
+        }
+        div.grid {
+            .logo {
+                position: absolute;
+                margin-left: -45%;
+                left: 50%; bottom: 5%;
+                width: 90%;
+                transition: all 3s;
+                &.scroll {
+                    transform: scale(0.15, 0.15);
+                }
+                h2 {
+                    font: {
+                        size: 15em;
+                        family: $font-title;
+                        weight: normal;
+                    }
+                    a {
+                        color: $color-base;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .slide {
+        position: relative;
+        overflow: hidden;
+        .inbox {
+            margin: 7% 0 5%;
+            width: 300%;
+            a {
+                display: inline-block;
+                margin-right: 20px;
+                font: {
+                    size: 3em;
+                    family: $font-sub;
+                    weight: normal;
+                }
+                &:first-child {
+                    opacity: 0.3;
+                }
+                &:last-child {
+                    opacity: 0.3;
+                }
+
+                @include responsive(tablet-screens) {
+                    font: {
+                        size: 5em;
+                    }
+                }
+            }
+        }
+        sup {
+            font-size: medium;
+        }
+        .slideContainer {
+            position: relative;
+            ul {
+                display: flex;
+                width: 800%;
+                @include responsive(tablet-screens) {
+                    width: 400%;
+                }
+                @include responsive(pc-screens) {
+                    width: 200%;
+                }
+                li {
+                    margin: 0 0.5%;
+                    a {
+                        img {
+                            width: 100%;
+                            height: initial;
+                            padding-bottom: 5px;
+                        }
+                        p {
+                           line-height: 20px;
+                           @include responsive(tablet-screens) {
+                                padding-right: 25%;
+                                font-size: 1.30em;
+                                line-height: 25px;
+                            }
+                            @include responsive(pc-screens) {
+                                padding-right: 0;
+                                padding-bottom: 5px;
+                                font-size: 1.0em;
+                                line-height: 20px;
+                            }
+                       }
+                       strong {
+                            display: none;
+                            padding: 5px 4%;
+                            font: {
+                                size: 0.72em;
+                                weight: normal;
+                            }
+                            border: 1px solid;
+                            border-radius: 100px;
+                            @include responsive(pc-screens) {
+                                display: inline;
+                                line-height: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .btnL {
+                position: absolute;
+                top: 45%;
+                left: 20px;
+                button {
+                    border: none;
+                    transform: translateY(-50%);
+                    background-color: transparent;
+                }
+                img {
+                    width: 100%;
+                }
+            }
+
+            .btnR {
+                position: absolute;
+                top: 45%;
+                right: 20px;
+                button {
+                    border: none;
+                    transform: translateY(-50%);
+                    background-color: transparent;
+                }
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+
+
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    .belief {
+        animation: marquee infinite 10s both linear;
+        @include responsive(pc-screens) {
+            animation: marquee infinite 23s both linear;
+        }
+        span {
+            font-size: 7.0em;
+        }
+    }
+    @keyframes marquee {
+        from { 
+            transform: translateX(0);
+        } 
+        to { 
+            transform: translateX(-100vw);
+        }
+    }
+}
+
+.belief {
+    padding-top: 55px;
+    marquee {
+        font-size: 7.0em;
+    }
+}
+
+.contents {
+    text-align: center;
+    .delivery {
+        img {
+            width: 90%;
+            margin: 30px 0;
+            border-radius: 500px;
+            @include responsive(tablet-screens) {
+               width: 50%;
+            }
+           
+        }
+        .text-box {
+            margin: 0.5%;
+            @include responsive(tablet-screens) {
+                float: left;
+                width: 45%;
+                margin-top: 25%;
+            }
+            
+            h3 {
+                line-height: 45px;
+                @include responsive(pc-screens) {
+                    font-size: 4.85em;
+                    line-height: 65px;
+                }
+            }
+            p {
+                padding: 20px 5% 30px;
+                font-size: 1.25em;
+                @include responsive(pc-screens) {
+                    line-height: 25px;
+                }
+            }
+            button {
+                margin-bottom: 80px;
+                width: 140px;
+                height: 40px;
+                font-size: 1.20em;
+                color: $color-main;
+                border-radius: 30px;
+                border: 1px solid $color-main;
+                background-color: transparent;
+                &:hover {
+                    color: $color-base;
+                    background-color: $color-main;
+                    cursor: pointer;
+                }
+            }
+            
+        }
+    }
+    .ethos {
+        @include responsive(tablet-screens) {
+            margin: 60px 0;
+        }
+        img {
+            width: 90%;
+            @include responsive(tablet-screens) {
+                width: 50%;
+            }
+            
+        }
+        .text-box2 {
+            margin: 0.5%;
+            @include responsive(tablet-screens) {
+                float: right;
+                width: 45%;
+                margin-top: 17%;
+            }
+            
+            h3 {
+                margin-top: 30px; 
+                @include responsive(pc-screens) {
+                    font-size: 4.85em;
+                }
+            }
+            p {
+                padding: 20px 5% 20px;
+                font-size: 1.25em;
+            }
+            button {
+                margin-bottom: 60px;
+                width: 140px;
+                height: 40px;
+                font-size: 1.20em;
+                color: $color-main;
+                border-radius: 30px;
+                border: 1px solid $color-main;
+                background-color: transparent;
+                &:hover {
+                    color: $color-base;
+                    background-color: $color-main;
+                    cursor: pointer;
+                }
+            }
+            
+        }
+    }
+}
+
+.categories {
+    position: relative;
+    text-align: center;
+    .grid {
+        h3 {
+            margin-bottom: 40px;
+            font: {
+                family: $font-main;
+                size: 1.25em;
+            }
+        }
+        
+        ul {
+            padding: 0 10%;
+            .almond {
+                position: absolute;
+                top: 15%; left: 20%;
+                z-index: -1;
+                @include responsive(tablet-screens) {
+                    top: 17%; left: 30%;
+                }
+                img {
+                    width: 25%;
+                    @include responsive(tablet-screens) {
+                        width: 30%;
+                    }
+                    @include responsive(pc-screens) {
+                        width: 40%;
+                    }
+                }
+            }
+    
+            .la {
+                position: absolute;
+                top: 20%; right: 15%;
+                z-index: -1;
+                @include responsive(tablet-screens) {
+                    top: 25%; right: 25%;
+                }
+                img {
+                    width: 30%;
+                    @include responsive(pc-screens) {
+                        width: 35%;
+                    }
+                }
+            }
+    
+            .brownie {
+                position: absolute;
+                top: 40%; right: 20%;
+                z-index: -1;
+                @include responsive(tablet-screens) {
+                    right: 30%;
+                }
+                img {
+                    width: 25%;
+                    @include responsive(pc-screens) {
+                        width: 35%;
+                    }
+                }
+            }
+    
+            .nuts {
+                position: absolute;
+                top: 50%; left: -20%;
+                z-index: -1;
+                @include responsive(tablet-screens) {
+                    left: 0;  
+                }
+                img {
+                    width: 20%;
+                    @include responsive(tablet-screens) {
+                        width: 30%;  
+                    }
+                    @include responsive(pc-screens) {
+                        width: 40%;
+                    }
+                }
+            }
+    
+            .egg {
+                position: absolute;
+                top: 60%; right: 0;
+                z-index: -1;
+                @include responsive(tablet-screens) {
+                    top: 60%; right: 20%;
+                }
+                img {
+                    width: 25%;
+                    @include responsive(pc-screens) {
+                        width: 35%;
+                    }
+                }
+            }
+
+            li {
+                line-height: 37px;
+                font: {
+                    family: $font-sub;
+                    size: 2.30em;
+                }
+                @include responsive(tablet-screens) {
+                    line-height: 60px;
+                    font-size: 3.55em;
+                }
+                @include responsive(pc-screens) {
+                    line-height: 80px;
+                    font-size: 4.85em;
+                }
+                a {
+                    &:hover {
+                        font: {
+                            family: $font-main;
+                            size: 0.85em;
+                        }
+                    }
+                }
+            }
+            button {
+                margin: 40px 0;
+                width: 110px;
+                height: 40px;
+                font-size: 1.28em;
+                color: $color-main;
+                border-radius: 30px;
+                border: 1px solid $color-main;
+                background-color: transparent;
+                &:hover {
+                    color: $color-base;
+                    background-color: $color-main;
+                    cursor: pointer;
+                }
+            } 
+        }
+    }
+}
+
+.order_pickup {
+    text-align: center;
+    button {
+        margin-top: 30px;
+        width: 14rem;
+        height: 14rem;
+        color: $color-main;
+        border: 1px solid $color-main;
+        background-color: transparent;
+        &:hover {
+            color: $color-base;
+            background-color: $color-main;
+            cursor: pointer;
+        }
+        &:last-child {
+            border-radius: 100%;
+        }
+        @include responsive(tablet-screens) {
+           width: 23rem;
+           height: 23rem;
+           margin: 5%;
+        }
+        @include responsive(pc-screens) {
+           margin: 2%;
+        }
+        div {
+            p{
+                font: {
+                    family: $font-main;
+                    size: 1.40em;
+                }
+                @include responsive(tablet-screens) {
+                    font-size: 1.50em;
+                }
+            }
+        }
+    }
+}
+
+.instagram {
+    margin: 60px 0 80px;
+    display: grid;
+    grid-gap: 1rem;
+    padding: 0 1rem;
+    .insta-box {
+        display: grid;
+        grid-auto-flow: column;
+        grid-column-gap: 1rem;
+        place-content: center;
+        align-items: center;
+       
+        h3 {
+            font: {
+                size: calc(16px + 0.5vw);
+                family: $font-main;
+            }
+        }
+        button {
+            padding: 0.5rem 1.1rem;
+            font-size: calc(16px + 0.5vw);
+            color: $color-main;
+            border-radius: 30px;
+            border: 1px solid $color-main;
+            background-color: transparent;
+            &:hover {
+                color: $color-base;
+                background-color: $color-main;
+                cursor: pointer;
+            }
+        } 
+    }
+    .img-flex {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+        @include responsive(pc-screens) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        img {
+            width: 100%;
+            cursor: pointer;
+            @include responsive(tablet-screens) {
+                padding: 0.8%;
+            }
+        }
+    }
+}
+
+footer {
+    color: $color-base;
+    background-color: $color-main;
+    .footer-wrap {
+        display: grid;
+        padding: 2rem 3.1rem 1rem 1.2rem;
+        @include responsive(pc-screens) {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-column-gap: 1.3rem;
+        }
+        a {
+            margin-bottom: 20px;
+            color: #fff;
+            font: {
+                size: 6.0em;
+                family: $font-title;
+            }
+            @include responsive(tablet-screens) {
+                font-size: 6.5em;
+            }
+            @include responsive(pc-screens) {
+                font-size: 15em;
+            }
+        }
+        .about-re {
+            padding-bottom: 70px;
+            line-height: 25px;
+            font-size: 1.18em;
+            @include responsive(tablet-screens) {
+                max-width: 20.4em;
+                font-size: 1.30em;
+            }
+            @include responsive(pc-screens) {
+                font-size: 1.90em;
+                line-height: 35px;
+                margin: 100px 0 50px;
+            }
+            span {
+                font: {
+                    size: 1.25em;
+                    family: $font-sub;
+                }
+            }
+        }
+        .sign-up {
+            position: relative;
+            p {
+                margin-top: 15px;
+                font-size: 1.10em;
+            }
+            .email {
+                max-width: 30em;
+                label {
+                    font-size: 0;
+                }
+                input {
+                    width: 100%;
+                    height: 60px;
+                    padding-left: 30px;
+                    border: none;
+                    font-size: 1.80em;
+                    &::placeholder {
+                        color: $color-main;
+                        opacity: 0.5;
+                    }
+                    @include responsive(tablet-screens) {
+                        margin-top: 5px;
+                    }
+                }
+                button {
+                    position: absolute;
+                    bottom: 3px;
+                    right: 8%;
+                    font-size: 2.50em;
+                    color: $color-main;
+                    border: none;
+                    cursor: pointer;
+                    background-color: transparent;
+                    @include responsive(tablet-screens) {
+                        right: 37%;
+                    }
+                    @include responsive(pc-screens) {
+                        right: 10%;
+                    }
+                }
+            }
+        }
+        .foot-menu {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 0 70px;
+            @include responsive(tablet-screens) {
+                justify-content: left;
+            }
+            @include responsive(pc-screens) {
+                margin: 0;
+            }
+            ul {
+                width: 30%;
+                @include responsive(pc-screens) {
+                    width: 33%;
+                }
+                li {
+                    a {
+                        line-height: 20px;
+                        color: $color-base;
+                        font: {
+                            family: $font-main;
+                            size: 0.90em;
+                        }
+                        @include responsive(tablet-screens) {
+                            line-height: 25px;
+                            font-size: 0.95em;
+                        }
+                        @include responsive(pc-screens) {
+                            line-height: 15px;
+                            font-size: 1.30em;
+                        }
+                    }
+                }
+            }
+        }
+        .copyright {
+            font-size: 0.93em;
+            @include responsive(pc-screens) {
+                margin-top: 60px;
+            }
+        }
+    }
+}
